@@ -21,8 +21,9 @@ ggpairs |> formals() |> names()
 - the child initializing function will be something like ggpairs_piped(), and a new `pairs_obj` will be created internally
 - the child argument-based functions will take the piped in specification and update it; examples of function names are `pairs_title()`, `pairs_params()` and are derived from the parent function's arguments, e.g. `title` and `params`.
 
+# Steps
 
-# 1. Internals template.  So these will use the OOP internal function with a form that looks like the following
+### 1. Internals template.  So these will use the OOP internal function with a form that looks like the following:
 
 ``` r
 #' Title
@@ -66,7 +67,7 @@ print.pairsobj <- function(pairs_obj){
 
 
 
-#### 2. initializing function template
+### 2. initializing function template
 
 ``` r
 #' @export
@@ -86,7 +87,7 @@ ggpairs_piped <- function(data = NULL){
 ```
 
 
-#### 3. Recall the last specification template (There are some objections to this but we'll keep it for now)
+### 3. Recall the last specification template (There are some objections to this but we'll keep it for now)
 
 ``` r
 #' @export   # convenience
@@ -97,7 +98,7 @@ last_ggpairs <- function(){
 }
 ```
 
-#### 4. template argument-based child functions.  Each argument-based child function should take the form:
+### 4. template argument-based child functions.  Each argument-based child function should take the form:
 
 
 - for each of the arguments in our parent function, i.e. `ggpairs`  a piping function will be created, like `pairs_title()`, `pairs_params()` etc. 
